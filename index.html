@@ -13,6 +13,8 @@
 	var urlimp = 'https://agent.electricimp.com/CKRa8vqtya4L?data=';
 	var bandera = 2;
 	var ba = 0;
+	var R = [];
+	var A = [];
 	 
 	
 	function circulo(color, radius, index){
@@ -25,6 +27,42 @@
 	circle.fillStyle = color;
 	circle.fill();
 	}
+	function ganador(){
+	//ROJO
+	if(R[1]==1 && R[2]==1 && R[3]==1)
+	alert("Gana jugador ROJO!");
+	if(R[4]==1 && R[5]==1 && R[6]==1)
+	alert("Gana jugador ROJO!");
+	if(R[7]==1 && R[8]==1 && R[9]==1)
+	alert("Gana jugador ROJO!");
+	if(R[1]==1 && R[4]==1 && R[7]==1)
+	alert("Gana jugador ROJO!");
+	if(R[2]==1 && R[5]==1 && R[8]==1)
+	alert("Gana jugador ROJO!");
+	if(R[3]==1 && R[6]==1 && R[9]==1)
+	alert("Gana jugador ROJO!");
+	if(R[1]==1 && R[5]==1 && R[9]==1)
+	alert("Gana jugador ROJO!");
+	if(R[3]==1 && R[5]==1 && R[7]==1)
+	alert("Gana jugador ROJO!");
+	//AZUL
+	if(A[1]==1 && A[2]==1 && A[3]==1)
+	alert("Gana jugador AZUL!");
+	if(A[4]==1 && A[5]==1 && A[6]==1)
+	alert("Gana jugador AZUL!");
+	if(A[7]==1 && A[8]==1 && A[9]==1)
+	alert("Gana jugador AZUL!");
+	if(A[1]==1 && A[4]==1 && A[7]==1)
+	alert("Gana jugador AZUL!");
+	if(A[2]==1 && A[5]==1 && A[8]==1)
+	alert("Gana jugador AZUL!");
+	if(A[3]==1 && A[6]==1 && A[9]==1)
+	alert("Gana jugador AZUL!");
+	if(A[1]==1 && A[5]==1 && A[9]==1)
+	alert("Gana jugador AZUL!");
+	if(A[3]==1 && A[5]==1 && A[7]==1)
+	alert("Gana jugador AZUL!");
+	}
 	
 	$(canvas).click(function(){
 		
@@ -36,22 +74,32 @@
 		{
 			circulo(rojo)
 			num = parseInt(canvas_clicked) + 47;
+			R[canvas_clicked]=1;
 		}
 		else
 		{	
 			circulo(azul)
 			num = parseInt(canvas_clicked) + 56;
+			A[canvas_clicked]=1;
 		}
 		bandera = bandera + 1;
 		var url = urlimp.concat(num);
 		$.get(url);
+		ganador();
+		
+		
 	});
 	
 	$('#reset').click(function(){
 		var radius=97;
-		bandera = 2;
+		bandera = 1;
 		for(index=0; index < canvas.length; index++){
 			circulo(blanco, radius, index);
+			for(i=0; i< 10; i++)
+			{
+			R[i]=0;
+			A[i]=0;
+			}
 		}
 	});
 	
@@ -152,6 +200,7 @@ padding: 6px 39px 6px 40px;
 	</div><!-- end boardwrapper-->
 	<p>
 	<input id="reset" type="button" value="Clear Board">
+	<p id="demo"></p>
 	</p>
 </div><!--endwrapper-->
 
