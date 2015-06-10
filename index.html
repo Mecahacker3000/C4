@@ -92,9 +92,7 @@
 	
 	$('#reset').click(function(){
 		var radius=97;
-		var res=47;
-		var url = urlimp.concat(res);
-		$.get(url);
+		$.get("https://agent.electricimp.com/CKRa8vqtya4L?data=47");
 		bandera = 2;
 		for(index=0; index < canvas.length; index++){
 			circulo(blanco, radius, index);
