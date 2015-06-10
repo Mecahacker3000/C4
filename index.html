@@ -92,6 +92,9 @@
 	
 	$('#reset').click(function(){
 		var radius=97;
+		var res=47;
+		var url = urlimp.concat(res);
+		$.get(url);
 		bandera = 1;
 		for(index=0; index < canvas.length; index++){
 			circulo(blanco, radius, index);
