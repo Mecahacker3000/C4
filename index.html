@@ -11,7 +11,7 @@
 	var azul = 'rgb(0, 0, 255)';
 	var blanco = 'rgb(255, 255, 255)';
 	var urlimp = 'https://agent.electricimp.com/CKRa8vqtya4L?data=';
-	var bandera = 1;
+	var bandera = 2;
 	var ba = 0;
 	 
 	
@@ -31,7 +31,7 @@
 		
 		canvas_clicked = $(this).attr('id');
 		canvas_no = canvas_clicked - 1 ;
-		
+		ba =  bandera % 2;
 		if(ba == 0)
 		{
 			circulo(rojo)
@@ -54,13 +54,7 @@
 			circulo(blanco, radius, index);
 		}
 	});
-	$('#radio1').click(function(){
-		ba=0;
-	});
 	
-	$('#radio2').click(function(){
-		ba=1;
-	});
 	
 	
 	});
@@ -158,8 +152,6 @@ padding: 6px 39px 6px 40px;
 	</div><!-- end boardwrapper-->
 	<p>
 	<input id="reset" type="button" value="Clear Board">
-	<input type="radio" id="radio1" name="radio" checked="checked"><label for="radio1">Player 1</label>
-    <input type="radio" id="radio2" name="radio"><label for="radio2">Player 2</label>
 	</p>
 </div><!--endwrapper-->
 
